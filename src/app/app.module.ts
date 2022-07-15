@@ -10,6 +10,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { CvComponent } from './modules/cv/cv.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { HorizontalButtonListComponent } from './shared/horizontal-button-list/horizontal-button-list.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HorizontalButtonListComponent } from './shared/horizontal-button-list/h
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot<IAppState>({
       user: userReducers,
     }),
