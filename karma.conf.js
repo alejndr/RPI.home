@@ -25,7 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-      dir: require('path').join(__dirname, './coverage/ngrx-pure'),
+      dir: require('path').join(__dirname, './coverage/RPI.home'),
       subdir: '.',
       reporters: [
         { type: 'html' },

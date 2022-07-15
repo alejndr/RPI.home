@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'ngrx-pure'`, () => {
+  it(`should have as title 'RPI.home'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ngrx-pure');
+    expect(app.title).toEqual('RPI.home');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('ngrx-pure app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('RPI.home app is running!');
   });
 });

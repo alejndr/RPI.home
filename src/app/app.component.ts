@@ -12,7 +12,7 @@ import { selectUser } from './state/user/user.selectors';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngrx-pure';
+  title = 'RPI.home';
   id: string | undefined;
   username: string | undefined;
   email: string | undefined;
