@@ -22,9 +22,7 @@ export class AppComponent {
   ){}
 
   ngOnInit(): void {
-    
     this.setUserData();
-    this.loadUser();
   }
 
   setUserData(){
@@ -37,13 +35,6 @@ export class AppComponent {
     this.store.dispatch(setUser({ userInfo: user }));
   }
 
-  loadUser(){
-    this.store.select(selectUser).pipe(first()).subscribe(res => {
-      this.id = res.id
-      this.username = res.username
-      this.email = res.email
-      
-    })
-  }
+  
 
 }

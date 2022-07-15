@@ -6,10 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IAppState } from './state/app.state';
 import { userReducers } from './state/user/user.reducers';
+import { HomeComponent } from './modules/home/home.component';
+import { CvComponent } from './modules/cv/cv.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { HorizontalButtonListComponent } from './shared/horizontal-button-list/horizontal-button-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    CvComponent,
+    HeaderComponent,
+    HorizontalButtonListComponent
   ],
   imports: [
     BrowserModule,
