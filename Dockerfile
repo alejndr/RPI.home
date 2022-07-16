@@ -16,4 +16,6 @@ RUN npm run build --prod
 #Segunda Etapa
 FROM nginx:1.17.1-alpine
 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 COPY --from=build-step /app/dist/RPI.home /usr/share/nginx/html
