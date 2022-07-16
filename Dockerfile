@@ -11,6 +11,8 @@ RUN npm install
 
 COPY . /app
 
+ARG CACHEBUST=1
+
 RUN npm run build --prod
 
 #Segunda Etapa
