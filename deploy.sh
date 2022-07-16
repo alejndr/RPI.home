@@ -2,6 +2,7 @@
 # My first shell script
 echo "Hello $USER"
 echo "Deploying webapp"
+git fetch -p
 git reset --hard origin/master
 docker rm --force rpi_home
 docker build -t home . --build-arg CACHEBUST=0
