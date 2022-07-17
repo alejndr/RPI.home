@@ -60,6 +60,10 @@ a:hover .liquid{
   top: -120px;
 }
 
+.active .liquid{
+  top: -120px;
+}
+
 @keyframes animate {
   0% {
     transform: translate(-50%, -75%) rotate(0deg);

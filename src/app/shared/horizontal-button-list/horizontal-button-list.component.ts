@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 export interface IButtonConfig {
   title: string;
   route: string;
+  active: boolean;
 }
 
 
@@ -17,9 +18,6 @@ export class HorizontalButtonListComponent implements OnInit {
   
   @Input() buttons?: Array<IButtonConfig>;
 
-  // Directions: row, col
-  @Input() direction: string = 'row'
-
   constructor(
     private router: Router,
   ) { }
@@ -27,8 +25,14 @@ export class HorizontalButtonListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  goTo(route: string){
-    this.router.navigateByUrl('/'+route);
+  goTo(button: IButtonConfig){
+    this.buttons?.forEach(element => { if (element.route != button.route) element.active = false });
+    button.active = true
+    this.router.navigateByUrl('/'+button.route);
+  }
+
+  checkActiveRoute(){
+    //TODO algo con y el array de botones this.router.url
   }
 
 }

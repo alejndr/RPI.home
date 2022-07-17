@@ -23,17 +23,17 @@ export class HeaderAnimatedWavesComponent implements OnInit {
 
   getButtons(){
     this.buttons = [
-      {title: 'Home', route: ''},
-      {title: 'CV', route: 'cv'},
+      {title: 'Home', route: '', active: true},
+      {title: 'CV', route: 'cv', active: false},
     ]
   }
 
   getRouteName(){
     this.router.events.subscribe(res => {
       if (this.router.url == '/') {
-        this.routeName = 'Home'
+        this.routeName = 'HOME'
       } else {
-        this.routeName = window.location.pathname.charAt(1).toUpperCase() + window.location.pathname.slice(2);
+        this.routeName = window.location.pathname.slice(1).toUpperCase();
       }
       
     })

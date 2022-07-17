@@ -1,7 +1,7 @@
 <div class="flex flex-col sm:flex-row justify-between gap-4">
   <div class=""
-    *ngFor="let button of buttons" (click)="goTo(button.route)">
-    <a style="cursor: pointer;">
+    *ngFor="let button of buttons" (click)="goTo(button)">
+    <a style="cursor: pointer;" [class.active]="button.active">
       <span>{{button.title}}</span>
       <div class="liquid"></div>
     </a>

@@ -23,8 +23,8 @@ export class HeaderComponent implements OnInit {
 
   getButtons(){
     this.buttons = [
-      {title: 'Home', route: ''},
-      {title: 'CV', route: 'cv'},
+      {title: 'Home', route: '', active: true},
+      {title: 'CV', route: 'cv', active: false},
     ]
   }
 
