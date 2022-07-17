@@ -1,8 +1,9 @@
-<div [ngClass]="{'flex-row': direction === 'row', 'flex-col': direction === 'col'}" class="flex justify-between gap-4">
-  <div class="py-2 px-4 bg-slate-200 hover:bg-slate-400  rounded-lg cursor-pointer"
+<div class="flex flex-col sm:flex-row justify-between gap-4">
+  <div class=""
     *ngFor="let button of buttons" (click)="goTo(button.route)">
-    <div class="text-slate-800 font-bold font-sans">
-      {{button.title}}
-    </div>
+    <a style="cursor: pointer;">
+      <span>{{button.title}}</span>
+      <div class="liquid"></div>
+    </a>
   </div>
 </div>
