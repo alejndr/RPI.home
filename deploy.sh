@@ -1,13 +1,13 @@
 #!/bin/bash
 # My first shell script
-echo "$(tput setaf 6) Hello $USER"
-echo " $(tput setaf 6) Deploying webapp"
+echo -e "\033[1;36m $ Hello $USER \e[m"
+echo -e "\033[1;36m $ Deploying webapp \e[m"
 git fetch -p
 git reset --hard origin/master
-echo " $(tput setaf 6) Updated repository"
+echo -e "\033[1;36m $ Updated repository \e[m"
 docker rm --force rpi_home
-echo " $(tput setaf 6) Removed previous container"
+echo -e "\033[1;36m $ Removed previous container \e[m"
 docker build -t home . --build-arg CACHEBUST=0
 docker run -d --name rpi_home -it -p 8000:80 home
-echo " $(tput setaf 6) Web deployed"
+echo -e "\033[1;36m $ Web deployed \e[m"
 chmod +x ./deploy.sh
