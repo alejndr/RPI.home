@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 import { IButtonConfig } from '../horizontal-button-list/horizontal-button-list.component';
 
 @Component({
@@ -23,13 +24,13 @@ export class HeaderAnimatedWavesComponent implements OnInit {
 
   getButtons(){
     this.buttons = [
-      {title: 'Home', route: '', active: true},
+      {title: 'Home', route: '', active: false},
       {title: 'CV', route: 'cv', active: false},
     ]
   }
 
   getRouteName(){
-    this.router.events.subscribe(res => {
+    this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe(res => {
       if (this.router.url == '/') {
         this.routeName = 'HOME'
       } else {

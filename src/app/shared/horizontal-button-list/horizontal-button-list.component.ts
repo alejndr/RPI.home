@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter } from 'rxjs';
 
 
 export interface IButtonConfig {
@@ -23,6 +24,7 @@ export class HorizontalButtonListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.checkActiveRoute();
   }
 
   goTo(button: IButtonConfig){
@@ -32,7 +34,14 @@ export class HorizontalButtonListComponent implements OnInit {
   }
 
   checkActiveRoute(){
-    //TODO algo con y el array de botones this.router.url
+    this.router.events.pipe(filter((e): e is NavigationEnd => e instanceof NavigationEnd)).subscribe( res => {
+      this.buttons?.forEach(element => {
+        if (element.route === this.router.url.slice(1)) {
+          element.active = true;
+        }
+      });
+      
+    })
   }
 
 }
