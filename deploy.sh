@@ -19,16 +19,26 @@ CYAN='\033[0;36m'
 LIGHTCYAN='\033[1;36m'
 NOCOLOR='\e[m'
 
+# output welcome message with username
+echo -e "${LIGHTCYAN}Hello $USER${NOCOLOR}"
 
-
-echo -e "${LIGHTCYAN} $ Hello $USER ${NOCOLOR}"
-echo -e "${LIGHTCYAN} $ Deploying webapp ${NOCOLOR}"
+# pull latest code changes from origin
+echo -e "${LIGHTCYAN}Deploying webapp${NOCOLOR}"
 git fetch -p
 git reset --hard origin/master
-echo -e "${LIGHTCYAN} $ Updated repository ${NOCOLOR}"
+
+# remove previous container, if any
+echo -e "${LIGHTCYAN}Removing previous container${NOCOLOR}"
 docker rm --force rpi_home
-echo -e "${LIGHTCYAN} $ Removed previous container ${NOCOLOR}"
-docker build -t home . --build-arg CACHEBUST=0
+
+# build new container with cachebusting
+echo -e "${LIGHTCYAN}Building new container${NOCOLOR}"
+docker build -t home . --build-arg CACHEBUST=$(date +%s)
+
+# start new container and map port 8000 to 80
+echo -e "${LIGHTCYAN}Starting new container${NOCOLOR}"
 docker run -d --name rpi_home -it -p 8000:80 home
-echo -e "${LIGHTCYAN} $ Web deployed ${NOCOLOR}"
+
+# output success message and make deploy script executable
+echo -e "${LIGHTCYAN}Web deployed${NOCOLOR}"
 chmod +x ./deploy.sh
