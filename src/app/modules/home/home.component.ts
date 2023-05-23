@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, first, map, of, switchMap } from 'rxjs';
 import { fadeInAnimation } from 'src/app/core/animations/fadeIn';
 
-const API_KEY = process.env['CF_API_KEY'];
-const ZONE_ID = process.env['CF_ZONE_ID'];
+const API_KEY = window['process'].env['CF_API_KEY'];
+const ZONE_ID = window['process'].env['CF_ZONE_ID'];
 const DOMAIN_NAME = 'alejndr.com';
 const RECORD_TYPE = 'A';
 
